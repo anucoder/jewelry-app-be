@@ -1,0 +1,17 @@
+{
+  "name": "fantasy_backend",
+  "version": "1.0.0",
+  "description": "Inventory management of the jewelry store fantasy",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Anagha T Sasidharan",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0",
+    "nodemon": "^2.0.20"
+  }
+}
