@@ -1,10 +1,10 @@
 const express = require("express");
 
 const router = express.Router();
-const product = require("../Controllers/productsController");
+const product = require("../controllers/productsController");
 const category = require("../controllers/categoryController")
-// const user = require('../Controllers/UserController')
-// const payment = require("../Controllers/PaymentController")
+// const user = require('../controllers/UserController')
+// const payment = require("../controllers/PaymentController")
 
 router.get("/", (request, response) => {
   response.status(200).send("Test");
