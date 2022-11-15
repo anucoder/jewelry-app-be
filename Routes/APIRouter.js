@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const product = require("../controllers/productsController");
 const category = require("../controllers/categoryController")
+const cart = require('../controllers/cartController');
 // const user = require('../controllers/UserController')
 // const payment = require("../controllers/PaymentController")
 
@@ -15,8 +16,13 @@ router.get("/", (request, response) => {
  router.get("/product-details/:id", product.getProductDetailsById);
  router.post("/products/filter",product.filterData)
 
+
 //Category
 router.get("/categories",category.getCategoryList);
+
+//Cart
+router.post("/cart/new-item",cart.addItemtoCart)
+router.post("/cart/items",cart.getItemsbyEmail)
 // //User
 // router.post('/api/sign-up',user.SignUp)
 // router.post("/api/login",user.Login)
