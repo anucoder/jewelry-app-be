@@ -78,7 +78,7 @@ module.exports.updateItemQuantity = async (request,response) =>{
 module.exports.deleteItem = async (request,response) =>{
   let {email,id} = request.body;
   try{
-  let result = await cartModel.deleteOne({userEmail:email,productId:id,quantity:0})
+  let result = await cartModel.deleteOne({userEmail:email,productId:id})
 
   if(result){
       response.status(200).send({
