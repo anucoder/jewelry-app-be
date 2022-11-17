@@ -4,6 +4,7 @@ const router = express.Router();
 const product = require("../controllers/productsController");
 const category = require("../controllers/categoryController")
 const cart = require('../controllers/cartController');
+const cartModel = require("../models/cartModel");
 // const user = require('../controllers/UserController')
 // const payment = require("../controllers/PaymentController")
 
@@ -24,6 +25,7 @@ router.get("/categories",category.getCategoryList);
 router.post("/cart/new-item",cart.addItemtoCart)
 router.post("/cart/items",cart.getItemsbyEmail)
 router.post("/cart/update-qty",cart.updateItemQuantity)
+router.post("/cart/get-qty",cart.getItemQuantity)
 // //User
 // router.post('/api/sign-up',user.SignUp)
 // router.post("/api/login",user.Login)
