@@ -75,6 +75,35 @@ module.exports.updateItemQuantity = async (request,response) =>{
 }
 }
 
+module.exports.deleteItem = async (request,response) =>{
+  let {email,id} = request.body;
+  try{
+  let result = await cartModel.deleteOne({userEmail:email,productId:id,quantity:0})
+
+  if(result){
+      response.status(200).send({
+        status : true,
+        result
+      });
+    }else if(result.deletedCount==0){
+      response.status(200).send({
+        status : false,
+        message:"item not deleted"
+      });
+    } else{
+      response.status(200).send({
+        status : false,
+        message:"items not found"
+      });
+    } 
+} catch (error) {
+  response.status(500).send({
+    status: false,
+    error,
+  });
+}
+}
+
 module.exports.getItemQuantity = async (request,response) =>{
   let {email,id} = request.body;
   try{

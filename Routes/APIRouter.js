@@ -26,6 +26,7 @@ router.post("/cart/new-item",cart.addItemtoCart)
 router.post("/cart/items",cart.getItemsbyEmail)
 router.post("/cart/update-qty",cart.updateItemQuantity)
 router.post("/cart/get-qty",cart.getItemQuantity)
+router.post("/cart/delete-item",cart.deleteItem)
 // //User
 // router.post('/api/sign-up',user.SignUp)
 // router.post("/api/login",user.Login)
