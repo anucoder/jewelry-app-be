@@ -26,7 +26,7 @@ module.exports.getProductList = async (req, res) => {
 module.exports.getProductDetailsById = async (req, res) => {
   let id = req.params.id;
   try {
-    let productDetails = await productModel.findOne({ _id: id });
+    let productDetails = await productModel.findOne({ id: id });
     if (productDetails) {
       res.status(200).send({
         status: true,
@@ -46,30 +46,6 @@ module.exports.getProductDetailsById = async (req, res) => {
   }
 };
 
-//API for Restaurant List by Location ID
-module.exports.getRestaurantListByLocId = async (request,response)=>{
-  let locid = request.params.loc_id;
-  try{
-    let restaurantListByLoc = await RestaurantModel.find({location_id:locid});
-    if(restaurantListByLoc){
-      response.status(200).send({
-        status : true,
-        restaurantListByLoc
-      });
-    }else{
-      response.status(200).send({
-        status : false,
-        message:"restaurant not found"
-      });
-    } 
-  }catch{
-      response.send(500).send({
-      status:false,
-      error,
-      message : "Server error, Contact to admin"
-    });
-  }
-};
 // API for Restaurant search page with filters, sort and pagination as input parameters
 
 module.exports.filterData = async (request,response)=>{
