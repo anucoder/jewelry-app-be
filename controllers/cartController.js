@@ -50,3 +50,27 @@ module.exports.getItemsbyEmail = async (request,response) =>{
     });
   }
 }
+
+module.exports.updateItemQuantity = async (request,response) =>{
+  let {email,id,quantity} = request.body;
+  try{
+  let result = await cartModel.updateOne({userEmail:email,productId:id},{$set:{quantity:quantity}})
+
+  if(result){
+      response.status(200).send({
+        status : true,
+        result
+      });
+    }else{
+      response.status(200).send({
+        status : false,
+        message:"items not found"
+      });
+    } 
+} catch (error) {
+  response.status(500).send({
+    status: false,
+    error,
+  });
+}
+}
