@@ -4,7 +4,7 @@ const router = express.Router();
 const product = require("../controllers/productsController");
 const category = require("../controllers/categoryController")
 const cart = require('../controllers/cartController');
-const payment = require("../controllers/PaymentController")
+const payment = require("../controllers/paymentController")
 
 router.get("/", (request, response) => {
   response.status(200).send("Test");
