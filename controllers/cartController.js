@@ -108,28 +108,37 @@ module.exports.emptyCart = async (request,response) =>{
   let {email} = request.body;
   try{
   let result = await cartModel.deleteMany({userEmail:email})
-
   if(result){
-      response.status(200).send({
-        status : true,
-        result
-      });
-    }else if(result.deletedCount==0){
-      response.status(200).send({
-        status : false,
-        message:"item not deleted"
-      });
-    } else{
+      if(result.deletedCount==0){
+        response.status(200).send({
+          status : false,
+          message:"item not deleted"
+        });
+        console.log(result);
+      }
+      else{
+        let count = result.deletedCount;
+        response.status(200).send({
+          status : true,
+          message :`${count} items deleted !`,
+          result
+        });
+        console.log(result);
+      }
+    }else{
       response.status(200).send({
         status : false,
         message:"items not found"
       });
+      console.log("items not found");
     } 
+
 } catch (error) {
   response.status(500).send({
     status: false,
     error,
   });
+  console.log(error)
 }
 }
 
