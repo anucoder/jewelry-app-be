@@ -25,6 +25,7 @@ router.post("/cart/items",cart.getItemsbyEmail)
 router.post("/cart/update-qty",cart.updateItemQuantity)
 router.post("/cart/get-qty",cart.getItemQuantity)
 router.post("/cart/delete-item",cart.deleteItem)
+router.post("/cart/empty-cart",cart.emptyCart)
 // //User
 
 
